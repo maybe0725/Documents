@@ -72,3 +72,6 @@ $ vue add vuetify
   ? Use babel/polyfill? Yes
   ? Select locale English
 ```
+
+> 참고
+- https://vuetifyjs.com/ko/components/icons
