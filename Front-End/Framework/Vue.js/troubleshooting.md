@@ -19,3 +19,12 @@ console.log() 사용시 발생.
   },
   ...
 ```
+
+<br/>
+
+## 2 warnings potentially fixable with the `--fix` option.
+
+```sh
+PS C:\DEV\Vue.js-Example\vue-todo-list-example> .\node_modules\.bin\eslint src --fix
+PS C:\DEV\Vue.js-Example\vue-todo-list-example> npm run serve
+```
