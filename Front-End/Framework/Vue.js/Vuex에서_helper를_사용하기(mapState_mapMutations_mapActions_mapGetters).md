@@ -94,3 +94,105 @@ export default new Vuex.Store({
 });
 
 ```
+
+<br/>
+
+## Sample Source
+
+<br/>
+
+### `store.js`
+
+```js
+/* store.js */
+import Vue from 'vue'
+import Vuex from 'vuex'
+import axios from 'axios'
+
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+    state: {
+        count: 0,
+        weight: 2,
+        random: 0,
+    },
+    mutations: {
+        increment(state) {
+            state.count++;
+        },
+        decrement(state) {
+            state.count--;
+        },
+        successGenerateRandomNumber(state, payload){
+            state.random = payload.num;
+        },
+        failGenerateRandomNumber(/*state, payload*/){
+            console.log('ERROR!');
+        }
+    },
+    getters:{
+        count(state, getters){
+            return Math.pow(state.count, getters.weight);
+        },
+        weight(state, /*getters*/){
+            return state.weight;
+        },
+        random(state, /*getters*/){
+            return state.random;
+        }
+    },
+    actions:{
+        generateRandomNumber({commit, /*state*/}, /*payload*/) {
+            axios.get(`http://localhost:4321/`)
+                .then((res) => {
+                    commit('successGenerateRandomNumber', res.data);
+                })
+                .catch((res) => {
+                    commit('failGenerateRandomNumber', res);
+                });
+        }
+    }
+})
+```
+
+### `HelloWorld.vue`
+
+```html
+<!--HelloWorld.vue-->
+<template>
+    <div class="hello">
+        <b>count : {{$store.state.count}}</b><br>
+        <b>count^2 : {{$store.getters.count}}</b><br>
+        <b>random : {{$store.getters.random}}</b><br>
+        <input type="button" @click="increment()" value="increment"/>
+        <input type="button" @click="decrement()" value="decrement"/>
+        <input type="button" @click="randomNumber()" value="random"/>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'HelloWorld',
+        data() {
+            return {}
+        },
+        created: function () {
+        },
+        methods: {
+            increment: function () {
+                this.$store.commit('increment')
+            },
+            decrement: function () {
+                this.$store.commit('decrement')
+            },
+            randomNumber: function () {
+                this.$store.dispatch('generateRandomNumber', /*100*/);
+            }
+        }
+    }
+</script>
+
+<style scoped>
+</style>
+```
