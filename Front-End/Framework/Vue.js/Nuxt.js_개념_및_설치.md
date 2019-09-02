@@ -185,3 +185,223 @@ plugins는 애플리케이션이 인스턴스 화 되기 전에 실행하며 전
 <br/>
 
 최초 템플릿을 설치하면 커맨드는 4가지가 존재한다.
+
+<table>
+<thead>
+  <tr>
+    <th>COMMAND</th>
+    <th>설명</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>dev</td>
+    <td>개발 서버를 Hot-reloading 상태로 localhost:3000으로 실행된다.</td>
+  </tr>
+  <tr>
+    <td>build</td>
+    <td>Webpack을 통해 애플리케이션을 빌드한다.</td>
+  </tr>
+  <tr>
+    <td>start</td>
+    <td>프로덕션(배포)모드로 서버를 시작한다.(build 실행 후 진행된다.)</td>
+  </tr>
+  <tr>
+    <td>generate</td>
+    <td>애플리케이션을 빌드하고 모든 라우트를 HTML 파일로 생성한다.(정적 호스팅)</td>
+  </tr>
+</tbody>
+</table>
+
+지금까지 설치를 진행했으니 실행을 해보자.
+
+```sh
+$ npm run dev
+```
+
+설명대로 `localhost:3000`으로 접속하여 실행된 페이지를 확인해보자.
+
+<br/>
+
+## Nuxt.js 개발 서버 Host/Port 변경
+
+<br/>
+
+개발 서버는 기본 localhost와 Port는 3000로 잡혀져 있지만, 
+해당 값을 변경하는 방법에는 몇 가지가 있지만 가장 기본적이고 보편적으로 사용되는 방법은 npm script를 수정하는 방법이다.
+
+```sh
+$ nuxt --hostname <host> --port <port>
+```
+
+하지만 이런 경우는 드물고 우리는 이미 `package.json`에 명시되어 있기 때문에 `package.json`을 수정하자.
+
+```json
+{
+  "scripts": {
+    "dev": "nuxt --hostname <host> --port <port>"
+  }  
+}
+```
+
+```json
+{
+  "scripts": {
+    "dev": "nuxt --hostname 127.0.0.1 --port 9090"
+  }  
+}
+```
+
+<br/>
+
+## Nuxt.js Module
+
+<br/>
+
+여기까지 Nuxt.js를 설치하고 초기 상태까지 왔지만 앞으로 더 해야 할 일이 많을 것이다. 
+그중 가장 많이 처리되는 게 API 통신을 위한 `Axios`의 설치와 로컬 환경에서 CORS문제를 해결하여 개발을 하기 위한 `proxy`의 설치이다.
+
+이 둘 다 `plugins`를 통해 설치하고 삽입할 수 있지만, 해당 포스트는 Nuxt.js 사용을 위한 포스트이기 때문에 
+`plugins`가 아닌 Nuxt.js의 `Module` 시스템을 설명하려 한다.
+
+Nuxt.js `Module`은 핵심 기능은 **확장하고 통합할 수 있는 Nuxt.js의 확장**이다. 
+직접 Custom 하게 모듈을 만들 수 있으며, 이미 만들어진 모듈을 가져다 쓸 수 있다.
+
+<br/>
+
+## Axios/Proxy Module 사용
+
+Axios는 http 통신을 위해 사용되는 훌륭한 오픈 소스이다. 
+물론 Nuxt.js를 사용할 때 직접 이 Axios를 사용해도 무방하다. 
+하지만 이 Axios를 가지고 Nuxt.js의 모듈화로 만들어진 것 있다. 
+우리는 그 [Axios module](https://axios.nuxtjs.org/setup)을 사용해보자. 
+Axios를 기반으로 생성된 모듈이라 Axios API를 참고해도 무방하며, Axios의 경량화로 볼 수 있다. 
+Axios 모듈은 [Proxy](https://github.com/nuxt-community/proxy-module) 모듈과 통합이 가능하기 때문에 Proxy 모듈도 같이 설치를 하자.
+
+설치는 NPM으로 진행하자.
+
+```sh
+$ npm i @nuxtjs/axios
+$ npm i @nuxtjs/proxy
+```
+
+nuxt.config.js를 열어 설치된 모듈을 import 하자.
+
+```js
+module.exports = {
+    modules: [
+        '@nuxtjs/axios'
+    ],
+    axios: {
+        proxy: true     // proxy 사용
+    },
+    proxy: {
+        '/prefix-url': 'proxy-url'    // proxy url
+    }
+}
+```
+
+위 처럼 `proxy` 옵션에 url-prefix를 지정하게 되면 `/prefix-url`로 시작되는 API는 모두 `proxy-url`로 Proxy 된다.
+
+이제부턴 Axios의 사용이 가능하며 심지어 proxy까지 연동이 되어 있다.
+
+<br/>
+
+## Module 생성하기
+
+<br/>
+
+이번에는 간단하게 `console.log`를 nuxt의 module로 직접 만들어보자.
+먼저 프로젝트 Root 경로에 `modules` 폴더를 만들어 보자. 
+명칭은 상관없다. 그다음 `logs.js`와 `logs.template.js` 파일을 생성하자.
+
+module을 생성하는데 필요한 파일은 두 가지이다.
+
+1. logs.js: 실제 nuxt.config.js의 modules에 사용될 index 파일
+2. logs.template.js: nuxt module에 삽입될 템플릿 파일
+
+### logs.js
+
+logs.js에서는 module의 사용될 템플릿 역할을 하는 소스를 실제 nuxt 인스턴스에 삽입하는 과정을 한다.
+
+```js
+const path = require('path')
+
+module.exports = function (_moduleOpts) {
+    const moduleOptions = Object.assign({}, this.options.log, _moduleOptions)
+
+    this.addPlugin({
+        src: path.resolve(__dirname, 'logs.template.js'),
+        moduleOptions
+    })
+}
+
+module.exports.meta = require('../../../package.json')
+```
+
+### logs.template.js
+
+logs.template.js는 실제 비즈니스 로직이 코딩되며 프로토타입의 명칭을 정한다.
+
+```js
+export default (ctx, inject) => {
+    const logs = (...args) => {
+        console.log(...args)
+    }
+
+    inject('log', logs)
+}
+```
+
+### 사용
+
+우리는 logs.template.js에서 inject에 `log`라고 정의를 하였고 nuxt 프로토타입에 삽입하였기 때문에 
+사용 시에는 `log` 앞에 `$`를 붙여서 사용하면 된다. 
+실제로 `this`를 확인해 보면 `$log`가 생긴 것을 확인해 볼 수 있다.
+
+```js
+this.$log('test log')
+```
+
+<br/>
+
+## Root Source 디렉토리 변경하기
+
+현재의 디렉토리 구조를 보면 layout, pages, components 등 모든 폴더가 root 경로로 지정되어있다. 
+하지만 결국 우리는 어떤 프로젝트에 Nuxt.js를 도입을 하게 되면 현재의 디렉토리 구조대로 쓰지 못할 경우가 발생된다. 
+예를 들어 root의 경로를 App으로 지정해보자.
+
+디렉토리 구조는 다음과 같다.
+
+```
+- App
+    - assets/
+    - components/
+    - layouts/
+    - middleware/
+    - pages/
+    - plugins/
+    - static/
+    - store/
+- node_modules/
+- package.json
+```
+
+위 구조를 보면 모든 리소스는 `App` 경로 하위에 존재한다. 이럴 경우 우리는 `source directory`를 수정해줄 필요가 있다.
+
+nuxt.config.js 파일을 열어 수정해주자.
+
+```js
+module.exports = {
+    srcDir: 'App/'
+}
+```
+
+Nuxt.js 는 스캐폴딩부터 Vue.js를 사용하면서 귀찮은 작업을 대신해 주기에 많이 사용하고 있다. 
+다만 좀 어려운 점은 처음에 제공되는 템플릿에서 좀 더 확장성을 가진 구조를 만들기 위해서는 nuxt.config.js의 옵션들을 
+자세히 알아야 하고 수정해야 한다는 점이다. 
+nuxt.js에서 옵션이 워낙 많다 보니 프로젝트 구조를 잡을 때는 API 문서를 항상 열어 두는 것이 좋다.
+
+해당 포스트는 Nuxt.js의 기초를 다루려고 하였지만 Nuxt.js의 API가 워낙 잘 되어있나 보니 불필요한 내용이 끼워지게 되었다. 
+다음 포스트에서는 Nuxt.js에서 middleware 처리를 어떻게 하는지, 또 pages 구조를 어떻게 잡아야 vue-route의 기능을 사용할 수 있는지 
+등에 대한 좀 더 깊이 있게 다루는 포스트를 올리도록 하겠다.
