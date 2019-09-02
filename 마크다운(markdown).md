@@ -237,6 +237,20 @@ __굵게 쓰기__
 
 # 11. 블록접기
 
+```html
+<details>
+<summary>CLICK ME - show hidden blocks</summary>
+<p>
+
+yes, even hidden code blocks!
+
+/*```python
+print("hello world!")
+```*/
+
+</p>
+</details>
+```
 
 <details>
 <summary>CLICK ME - show hidden blocks</summary>
@@ -250,6 +264,34 @@ print("hello world!")
 
 </p>
 </details>
+
+```html
+<details>
+  <summary>CLICK ME - show hidden table blocks</summary>
+  <table>
+  <thead>
+    <tr>
+      <th>key</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>x-api-token</td>
+      <td>XA/Xxa/FAASDASDxxxxXXXXXXX/xxxxxxxxxx=</td>
+    </tr>
+    <tr>
+      <td>x-user-lang</td>
+      <td>en_US</td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+  </table>
+</details>
+```
 
 <details>
   <summary>CLICK ME - show hidden table blocks</summary>
