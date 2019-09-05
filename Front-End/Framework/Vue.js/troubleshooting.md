@@ -52,3 +52,15 @@ Another way to woraround waiting for portfinder/vue-cli to choose a solution is 
 ```sh
 $ npm install portfinder@1.0.21
 ```
+
+<br/>
+
+## Parsing error: Unexpected token
+
+### index.html
+
+Parsing error: Unexpected token eslint(prettier/prettier) [1,2]
+
+<!DOCTYPE html>
+
+
