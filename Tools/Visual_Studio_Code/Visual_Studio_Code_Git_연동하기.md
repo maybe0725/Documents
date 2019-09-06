@@ -23,6 +23,10 @@
 * 연동완료
 * push
 
+### Etc. 기존 레포지토리 remote 제거
+
+`git remote remove origin`
+
 ### Etc. 이미 존재하는 Github의 레포지토리와 연동
 
 * move the workspace project directory
