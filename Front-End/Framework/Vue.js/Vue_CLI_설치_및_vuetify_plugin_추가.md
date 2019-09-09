@@ -75,7 +75,7 @@ $ vue add vuetify
 
 <br/>
 
-## FontAwesome 설치.
+## Etc. FontAwesome 설치.
 
 `무료 버전의 FontAwesome 설치.`
 
