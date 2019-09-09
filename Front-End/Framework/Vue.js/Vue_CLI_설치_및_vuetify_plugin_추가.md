@@ -73,5 +73,44 @@ $ vue add vuetify
   ? Select locale English
 ```
 
+<br/>
+
+## FontAwesome 설치.
+
+`무료 버전의 FontAwesome 설치.`
+
+```sh
+# yarn use
+$ yarn add @fortawesome/fontawesome-free -D
+
+# npm use
+$ npm install @fortawesome/fontawesome-free -D
+```
+
+`index.html 파일 FontAwesome CDN 확인`
+
+```html
+<link
+  href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+  rel="stylesheet"
+/>
+```
+
+`vuetify.js 확인`
+
+```javascript
+import "@fortawesome/fontawesome-free/css/all.css"; // Ensure you are using css-loader
+import Vue from "vue";
+import Vuetify from "vuetify/lib";
+
+Vue.use(Vuetify);
+
+export default new Vuetify({
+  icons: {
+    iconfont: "fa"
+  }
+});
+```
+
 > 참고
 - https://vuetifyjs.com/ko/components/icons
