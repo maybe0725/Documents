@@ -546,7 +546,19 @@ $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# 9. Master node 동작 확인
+# 9. calico 설치
+# calico 3.8 설치 
+# calico 3.8 network 설치 전 아래 폴더가 있을 경우 Ready 상태가 안된다.
+$ rm -rf /var/lib/cni/
+$ kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+# calico 3.5 설치 
+# Installing with the Kubernetes API datastore—50 nodes or less
+$ kubectl apply -f https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+or
+# Installing with the Kubernetes API datastore—more than 50 nodes
+$ kubectl apply -f https://docs.projectcalico.org/v3.5/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/typha/calico.yaml
+
+# 10. Master node 동작 확인
 # 설치후 아래와 같이 msater node가 Ready 상태로 나와야 한다.
 $ kubectl get nodes
 NAME        STATUS   ROLES    AGE     VERSION
