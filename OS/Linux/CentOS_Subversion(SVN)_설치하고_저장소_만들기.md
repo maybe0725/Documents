@@ -2,6 +2,10 @@
 
 <br/>
 
+참고 - https://hellowoori.tistory.com/54
+
+<br/>
+
 ## 1. CentOS Subversion 설치
 
 <br/>
