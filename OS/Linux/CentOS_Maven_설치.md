@@ -79,9 +79,58 @@ drwxrwxr-x  6 maybe maybe      99 10월  8 00:47 apache-maven-3.6.2
 ### 2.3. 디렉토리 이름 변경 및 설치 파일 삭제
 
 ```sh
-[maybe@maybe-test ~]$ mv apache-maven-3.6.2/ apache-maven/
+
+# ----------------------------------------------------------------------- #
+
+[maybe@maybe-test ~]$ mv apache-maven-3.6.2/ maven/
 [maybe@maybe-test ~]$ rm -f apache-maven-3.6.2-bin.tar.gz
 [maybe@maybe-test ~]$ ll
 합계 0
-drwxrwxr-x  6 maybe maybe 99 10월  8 00:47 apache-maven
+drwxrwxr-x  6 maybe maybe 99 10월  8 00:47 maven
+
+# ----------------------------------------------------------------------- #
+
+[maybe@maybe-test ~]$ mv maven /usr/local/maven
+[maybe@maybe-test ~]$ cd /usr/local/maven
+[maybe@maybe-test ~]$ ll
+합계 28
+-rw-rw-r-- 1 maybe maybe 12846  8월 27 11:09 LICENSE
+-rw-rw-r-- 1 maybe maybe   182  8월 27 11:09 NOTICE
+-rw-rw-r-- 1 maybe maybe  2533  8월 27 11:01 README.txt
+drwxrwxr-x 2 maybe maybe    97 10월  8 00:47 bin
+drwxrwxr-x 2 maybe maybe    42 10월  8 00:47 boot
+drwxrwxr-x 3 maybe maybe    63  8월 27 11:01 conf
+drwxrwxr-x 4 maybe maybe  4096 10월  8 00:47 lib
+
+# ----------------------------------------------------------------------- #
+
+[maybe@maybe-test ~]$ ln -s /usr/local/maven/bin/mvn /usr/bin/mvn
+
+# ----------------------------------------------------------------------- #
+
+[maybe@maybe-test ~]$ vi /etc/profile.d/maven.sh
+
+# 아래내용 입력후 저장
+
+#!/bin/bash
+MAVEN_HOME=/srv/maven
+PATH=$MAVEN_HOME/bin:$PATH
+export PATH MAVEN_HOME
+export CLASSPATH=.
+
+# ----------------------------------------------------------------------- #
+
+# 실행권한 부여
+[maybe@maybe-test profile.d]$ chmod +x /etc/profile.d/maven.sh
+[maybe@maybe-test profile.d]$ source /etc/profile.d/maven.sh
+
+# ----------------------------------------------------------------------- #
+
+# 설치여부 확인
+[maybe@maybe-test ~]$ mvn -version
+Apache Maven 3.6.2 (40f52333136460af0dc0d7232c0dc0bcf0d9e117; 2019-08-27T11:06:16-04:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_222, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el8_0.x86_64/jre
+Default locale: ko_KR, platform encoding: UTF-8
+OS name: "linux", version: "4.18.0-80.el8.x86_64", arch: "amd64", family: "unix"
 ```
