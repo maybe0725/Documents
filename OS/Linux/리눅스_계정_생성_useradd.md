@@ -97,6 +97,31 @@ useradd 계정명 -u 사용자아이디
 
 <br/>
 
+### sudo 권한 부여
+
+```sh
+[root@zetawiki~]# vi /etc/sudoers
+```
+
+```sh
+## Next comes the main part: which users can run what software on
+## which machines (the sudoers file can be shared between multiple
+## systems).
+## Syntax:
+##
+##      user    MACHINE=COMMANDS
+##
+## The COMMANDS section may have other options added to it.
+##
+## Allow root to run any commands anywhere
+root    ALL=(ALL)       ALL
+maybe   ALL=(ALL)       ALL
+jenkins ALL=(ALL)       ALL
+svn     ALL=(ALL)       ALL
+```
+
+<br/>
+
 ### 계정삭제 : 계정 + 홈 디렉토리 삭제
 
 ```
