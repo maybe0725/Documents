@@ -97,7 +97,7 @@ useradd 계정명 -u 사용자아이디
 
 <br/>
 
-### sudo 권한 부여
+### sudo 권한 부여.
 
 ```sh
 [root@zetawiki~]# vi /etc/sudoers
