@@ -351,3 +351,76 @@ Host PC 에서 SSH 접속을 위해 `호스트 전용 어탭터`도 설정을 �
 ## 3. Ubuntu 설치.
 
 <br/>
+
+Please choose your preferred language > English
+
+![images](images/2019-10-21/2019-10-21_1808_01.png)
+
+Keyboard configuration
+
+- Layout : Korean
+- Variant : Korean - Korean (101/104 key compatible)
+
+![images](images/2019-10-21/2019-10-21_1808_02.png)
+
+Network connections
+
+- PASS/NONE : Ubuntu 설치 완료 후 수정
+
+![images](images/2019-10-21/2019-10-21_1808_03.png)
+
+Configure proxy
+
+- PASS/NONE
+
+![images](images/2019-10-21/2019-10-21_1808_04.png)
+
+Configure Ubuntu archive mirror
+
+- PASS/NONE : Ubuntu 설치 완료 후 수정
+
+![images](images/2019-10-21/2019-10-21_1808_05.png)
+
+Filesystem setup
+
+- Use An Entire Disk (권장사항)
+
+![images](images/2019-10-21/2019-10-21_1808_06.png)
+
+![images](images/2019-10-21/2019-10-21_1808_07.png)
+
+![images](images/2019-10-21/2019-10-21_1808_08.png)
+
+Profile setup
+
+- Your name: maybe
+- Your server's name: maybe
+- Pick a username: maybe
+- Choose a password: ???????
+- Confirm your password: ???????
+
+![images](images/2019-10-21/2019-10-21_1808_09.png)
+
+SSH Setup
+
+- PASS/NONE : Ubuntu 설치 완료 후 설치
+
+![images](images/2019-10-21/2019-10-21_1808_10.png)
+
+Featured Server Snaps
+
+- PASS/NONE
+
+![images](images/2019-10-21/2019-10-21_1808_11.png)
+
+설치중...
+
+![images](images/2019-10-21/2019-10-21_1808_12.png)
+
+설치완료... Reboot
+
+![images](images/2019-10-21/2019-10-21_1808_13.png)
+
+설치 후 로그인
+
+![images](images/2019-10-21/2019-10-21_1808_14.png)
