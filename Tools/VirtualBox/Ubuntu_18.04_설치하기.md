@@ -474,7 +474,7 @@ openssh-client					install
 ### 2. 설치 및 시작
 root@ubuntu:~# apt-get install openssh-server
 ...(생략)
-root@zetawiki:~# service ssh restart
+root@ubuntu:~# service ssh restart
 
 ### 3. 확인
 root@ubuntu:~# dpkg --get-selections | grep ssh
@@ -622,7 +622,7 @@ root@ubuntu:/etc/netplan#
 
 ### 9. Secure Sell 을 이용한 접속확인.
 ### Putty, MobaXterm 등을 이용하여 설정한 고정IP로 접속을 시도해본다.
-### ex. IP : 192.168.56.0 / Port : 22
+### ex. IP : 192.168.56.100 / Port : 22
 ```
 
 <br/>
