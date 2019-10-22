@@ -116,5 +116,5 @@ root@ubuntu:/etc/netplan#
 
 ### 9. Secure Sell 을 이용한 접속확인.
 ### Putty, MobaXterm 등을 이용하여 설정한 고정IP로 접속을 시도해본다.
-### ex. IP : 192.168.56.0 / Port : 22
+### ex. IP : 192.168.56.100 / Port : 22
 ```
