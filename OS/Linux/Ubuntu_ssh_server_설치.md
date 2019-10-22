@@ -16,7 +16,7 @@ openssh-client					install
 ### 2. 설치 및 시작
 root@ubuntu:~# apt-get install openssh-server
 ...(생략)
-root@zetawiki:~# service ssh restart
+root@ubuntu:~# service ssh restart
 
 ### 3. 확인
 root@ubuntu:~# dpkg --get-selections | grep ssh
