@@ -2,9 +2,6 @@
 
 <br/>
 
-https://godlvkhj.tistory.com/186
-https://myjamong.tistory.com/12
-
 ## 1. 사전준비
 
 ### gcc 설치
@@ -406,18 +403,24 @@ svn: E205007: 환경변수 SVN_EDITOR, VISUAL, EDITOR 중 하나는 설정하거
 ```
 
 ```sh
+####################################
 ### 조치 방법
 ### Ubuntu : .profile 파일 수정
 ### CentOS : .bash_profile 파일 수정
+####################################
 svn@ubuntu-deploy:~$ cd ~
 svn@ubuntu-deploy:~$ vi .profile
 
+#################
 ### 아래내용 추가
+#################
 # Subversion
 SVN_EDITOR=/usr/bin/vim
 export SVN_EDITOR
 
+####################
 ### 내용추가 후 적용
+####################
 svn@ubuntu-deploy:~$ source .profile
 ```
 
