@@ -415,8 +415,7 @@ svn@ubuntu-deploy:~$ vi .profile
 ### 아래내용 추가
 #################
 # Subversion
-SVN_EDITOR=/usr/bin/vim
-export SVN_EDITOR
+export SVN_EDITOR=/usr/bin/vim
 
 ####################
 ### 내용추가 후 적용
