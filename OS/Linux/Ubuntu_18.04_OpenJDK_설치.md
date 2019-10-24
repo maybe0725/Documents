@@ -4,7 +4,9 @@
 
 참고글 : [LINE의 OpenJDK 적용기: 호환성 확인부터 주의 사항까지](https://engineering.linecorp.com/ko/blog/line-open-jdk/)
 
-참고글 : [OpenJdk 설치, 삭제, 업데이트](https://daddyprogrammer.org/post/2062/openjdk-install-update-delete/)
+<br/>
+
+![images](images/2019-10-24/2019-10-24_17-48_01.png)
 
 <br/>
 
@@ -24,6 +26,8 @@
 
 ### Download Link
 
+[AdoptOpenJDK]
+
 - https://adoptopenjdk.net/
 - https://adoptopenjdk.net/releases.html
 - https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u232-b09/OpenJDK8U-jdk_x64_linux_hotspot_8u232b09.tar.gz
@@ -31,10 +35,14 @@
 - https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.5%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.5_10.tar.gz
 - https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.5%2B10/OpenJDK11U-jre_x64_linux_hotspot_11.0.5_10.tar.gz
 
+[OpenJDK]
+
 - https://jdk.java.net/archive/
 - https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
 - https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
 - https://download.java.net/java/ga/jdk11/openjdk-11_linux-x64_bin.tar.gz
+
+[AZUL]
 
 - https://cdn.azul.com/zulu/bin/zulu8.42.0.21-ca-jdk8.0.232-linux_x64.tar.gz
 - https://cdn.azul.com/zulu/bin/zulu8.42.0.21-ca-jre8.0.232-linux_x64.tar.gz
