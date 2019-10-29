@@ -76,9 +76,3 @@ jenkins@ubuntu-deploy:~$
 ```
 
 <br/>
-
-[작업중...]
-
-https://freezboi.tistory.com/65
-
-https://south10.tistory.com/60
