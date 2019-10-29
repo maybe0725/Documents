@@ -101,7 +101,14 @@ tar -zxvf zulu11.35.13-ca-jdk11.0.5-linux_x64.tar.gz
 `.profile` : 접속한 로그인 계정을 대상으로 적용.
 
 ```sh
+### 모든 계정 공통 적용
 sudo vi /etc/profile
+```
+
+```sh
+### 계정별 적용
+cd /home/jenkins
+vi .profile
 ```
 
 ```sh
@@ -120,6 +127,11 @@ export PATH
 source /etc/profile
 ```
 
+```sh
+### 설정적용
+source .profile
+```
+
 <br/>
 
 ### 4. 확인
@@ -130,4 +142,10 @@ openjdk version "1.8.0_232"
 OpenJDK Runtime Environment (Zulu 8.42.0.21-CA-linux64) (build 1.8.0_232-b18)
 OpenJDK 64-Bit Server VM (Zulu 8.42.0.21-CA-linux64) (build 25.232-b18, mixed mode)
 root@ubuntu-deploy:/usr/bin#
+```
+
+```sh
+jenkins@ubuntu-deploy:~$ javac -version
+javac 1.8.0_232
+jenkins@ubuntu-deploy:~$
 ```
