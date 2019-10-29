@@ -305,13 +305,17 @@ svn@ubuntu-deploy:~$ /app/svn/bin/svnserve -d -r /app/svn
 svn@ubuntu-deploy:/app/svn$ vi start.sh
 #!/bin/bash
 #/usr/local/bin/svnserve -d --threads -r [레파지토리 전체 경로]
-/app/svn/bin/svnserve -d --threads -r /app/svn/repository
+echo 'Subversion(SVN) start...'
+/app/svn/bin/svnserve -d --threads -r /app/svn
+echo 'Subversion(SVN) start... success running...'
 
 
 [종료 스크립트]
 svn@ubuntu-deploy:/app/svn$ vi stop.sh
 #!/bin/bash
-ps -ef | grep svnserve | grep -v grep | awk '{print "kill -9", \$2}' | sh
+echo 'Subversion(SVN) kill...'
+ps -ef | grep svnserve | grep -v grep | awk '{print "kill -9", $2}' | sh
+echo 'Subversion(SVN) kill... success'
 
 
 [실행권한부여]
@@ -324,7 +328,23 @@ svn@ubuntu-deploy:/app/svn$ chmod +x stop.sh
 ### 저장소 확인
 
 ```sh
-svn@ubuntu-deploy:/app/svn/bin$ ./svn list svn://127.0.0.1:3690/repository
+svn@ubuntu-deploy:~$ svn list svn://127.0.0.1:3690/repository
+Authentication realm: <svn://127.0.0.1:3690> 211e623c-f537-11e9-8050-711b1d607698
+Password for 'maybe': *******
+
+branches/
+tags/
+trunk/
+svn@ubuntu-deploy:~$
+```
+
+```sh
+svn@ubuntu-deploy:~$ svn list svn://127.0.0.1:3690/repository/trunk
+Authentication realm: <svn://127.0.0.1:3690> 211e623c-f537-11e9-8050-711b1d607698
+Password for 'maybe': *******
+
+SVNTest01/
+svn@ubuntu-deploy:~$
 ```
 
 <br/>
