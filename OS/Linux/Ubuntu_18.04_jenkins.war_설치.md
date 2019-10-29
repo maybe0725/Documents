@@ -87,6 +87,7 @@ jenkins@ubuntu-deploy:/app/jenkins$ vi /app/jenkins/stop.sh
 #/bin/sh
 
 echo 'jenkins.war kill...'
+#ps -ef | grep jenkins.war | grep -v grep | awk '{print "kill -9", $2}' | sh
 kill -9 `ps -ef | grep jenkins.war | awk '{print $2}'`
 echo 'jenkins.war kill... success'
 ```
