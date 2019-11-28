@@ -16,19 +16,19 @@
 
 ### 1. Window > Preferences > General > Content Types - Java Class File > Default encoding
 
-![images](images/20191119/20191119-1434-01.png)
+![images](../Images/20191119/20191119-1434-01.png)
 
 <br/>
 
 ### 2. Window > Preferences > General > Editors > Spelling > Encoding 에서 UTF-8 선택
 
-![images](images/20191119/20191119-1434-02.png)
+![images](../Images/20191119/20191119-1434-02.png)
 
 <br/>
 
 ### 3. Window > Preferences > General > Workspace > Text file encoding 에서 UTF-8 선택
 
-![images](images/20191119/20191119-1434-03.png)
+![images](../Images/20191119/20191119-1434-03.png)
 
 <br/>
 
@@ -36,7 +36,7 @@
 
 ※ CSS, HTML 도 동일하게 설정
 
-![images](images/20191119/20191119-1434-04.png)
+![images](../Images/20191119/20191119-1434-04.png)
 
 <br/>
 
@@ -44,6 +44,6 @@
 
 Project > Properties > Resource > Text file encoding 에서 UTF-8 선택
 
-![images](images/20191119/20191119-1434-05.png)
+![images](../Images/20191119/20191119-1434-05.png)
 
 <br/>
