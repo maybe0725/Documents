@@ -50,8 +50,8 @@ $ npm install react-router-dom
 $ npm install cross-env --dev
 ```
 
-* react-router-dom: 브라우저에서 사용되는 리액트 라우터 입니다.
-* cross-env: 프로젝트에서 NODE_PATH 를 사용하여 절대경로로 파일을 불러오기 위하여 환경 변수를 설정 할 때 운영체제마다 방식이 다르므로 공통적인 방법으로 설정 할 수 있게 해주는 라이브러리입니다.
+- react-router-dom: 브라우저에서 사용되는 리액트 라우터 입니다.
+- cross-env: 프로젝트에서 NODE_PATH 를 사용하여 절대경로로 파일을 불러오기 위하여 환경 변수를 설정 할 때 운영체제마다 방식이 다르므로 공통적인 방법으로 설정 할 수 있게 해주는 라이브러리입니다.
 
 <br/>
 <br/>
@@ -59,22 +59,23 @@ $ npm install cross-env --dev
 ### 프로젝트 초기화 및 구조 설정
 
 파일 제거
-* src/App.js
-* src/App.css
-* src/App.test.js
-* src/logo.svg
+
+- src/App.js
+- src/App.css
+- src/App.test.js
+- src/logo.svg
 
 <br/>
 <br/>
 
 ### 디렉토리 생성
 
-* src/components: 컴포넌트들이 위치하는 디렉토리입니다.
-* src/pages: 각 라우트들이 위치하는 디렉토리 입니다.
-* src/client: 브라우저 측에서 사용할 최상위 컴포넌트 입니다. 우리가 추후 서버사이드 렌더링을 구현 할 것이기 때문에 디렉토리를 따로 구분하였습니다. (서버사이드 렌더링을 할 때에는 서버 전용 라우터를 써야합니다.) 여기서 라우터를 설정합니다.
-* src/server: 서버측에서 사용 할 리액트 관련 코드를 여기에 넣습니다.
-* src/shared: 서버와 클라이언트에서 공용으로 사용되는 컴포넌트 App.js 가 여기에 위치합니다.
-* src/lib: 나중에 웹 연동을 구현 할 때 사용 할 API와 코드스플리팅 할 때 필요한 코드가 여기에 위치합니다.
+- src/components: 컴포넌트들이 위치하는 디렉토리입니다.
+- src/pages: 각 라우트들이 위치하는 디렉토리 입니다.
+- src/client: 브라우저 측에서 사용할 최상위 컴포넌트 입니다. 우리가 추후 서버사이드 렌더링을 구현 할 것이기 때문에 디렉토리를 따로 구분하였습니다. (서버사이드 렌더링을 할 때에는 서버 전용 라우터를 써야합니다.) 여기서 라우터를 설정합니다.
+- src/server: 서버측에서 사용 할 리액트 관련 코드를 여기에 넣습니다.
+- src/shared: 서버와 클라이언트에서 공용으로 사용되는 컴포넌트 App.js 가 여기에 위치합니다.
+- src/lib: 나중에 웹 연동을 구현 할 때 사용 할 API와 코드스플리팅 할 때 필요한 코드가 여기에 위치합니다.
 
 <br/>
 <br/>
@@ -104,16 +105,12 @@ $ npm install cross-env --dev
 `src/shared/App.js`
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                Hello React-Router
-            </div>
-        );
-    }
+  render() {
+    return <div>Hello React-Router</div>;
+  }
 }
 
 export default App;
@@ -124,14 +121,14 @@ export default App;
 `src/client/Root.js`
 
 ```javascript
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import App from 'shared/App';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import App from "shared/App";
 
 const Root = () => (
-    <BrowserRouter>
-        <App/>
-    </BrowserRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
 
 export default Root;
@@ -142,13 +139,13 @@ export default Root;
 `src/index.js`
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Root from './client/Root';
-import registerServiceWorker from './registerServiceWorker';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import Root from "./client/Root";
+import registerServiceWorker from "./registerServiceWorker";
+import "./index.css";
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<Root />, document.getElementById("root"));
 registerServiceWorker();
 ```
 
@@ -158,7 +155,7 @@ registerServiceWorker();
 $ npm start
 ```
 
-![Hello React-Router](images/20190802-0800-01.PNG)
+![Hello React-Router](../Images/20190802/20190802-0800-01.PNG)
 
 자 이제 기본적인 설정이 완료되었으니 본격적으로 리액트 라우터를 사용해봅시다!
 
@@ -175,16 +172,14 @@ $ npm start
 `src/pages/Home.js`
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 const Home = () => {
-    return (
-        <div>
-            <h2>
-                홈
-            </h2>
-        </div>
-    );
+  return (
+    <div>
+      <h2>홈</h2>
+    </div>
+  );
 };
 
 export default Home;
@@ -195,14 +190,14 @@ export default Home;
 `src/pages/About.js`
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 const About = () => {
-    return (
-        <div>
-            <h2>About</h2>
-        </div>
-    );
+  return (
+    <div>
+      <h2>About</h2>
+    </div>
+  );
 };
 
 export default About;
@@ -213,8 +208,8 @@ export default About;
 `src/pages/index.js`
 
 ```javascript
-export { default as Home } from './Home';
-export { default as About } from './About';
+export { default as Home } from "./Home";
+export { default as About } from "./About";
 ```
 
 <br/>
@@ -227,20 +222,19 @@ export { default as About } from './About';
 `src/shared/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { Home, About } from 'pages';
-
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { Home, About } from "pages";
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+      </div>
+    );
+  }
 }
 
 export default App;
@@ -254,11 +248,11 @@ export default App;
 
 먼저 우리의 라우트가 제대로 보여지는지 확인하세요.
 
-![Home](images/20190802-0800-02.PNG)
+![Home](../Images/20190802/20190802-0800-02.PNG)
 
 Home 이 잘 보여졌다면 /about 경로로 들어가보세요.
 
-![About](images/20190802-0800-03.PNG)
+![About](../Images/20190802/20190802-0800-03.PNG)
 
 잘 보여졌죠? 지금의 경우에는 개발서버쪽에서 `historyApiFallback` 설정을 통하여 어떤 요청으로 들어오던 저희 어플리케이션이 불러와져있는 index.html 을 보여주도록 설정하기 때문입니다.
 
@@ -266,7 +260,7 @@ Home 이 잘 보여졌다면 /about 경로로 들어가보세요.
 
 테스팅을 완료했다면 한번 Home 라우트의 `exact` 를 지워보세요.
 
-![exact](images/20190802-0800-04.PNG)
+![exact](../Images/20190802/20190802-0800-04.PNG)
 
 두 컴포넌트가 같이 보여졌죠? exact 를 하지 않으면, `/about` 에도 `/` 가 있기 때문에, 매칭이 되어서 보여지는거랍니다. 확인을 하셨다면 다시 exact 를 적으세요.
 
@@ -279,11 +273,11 @@ Home 이 잘 보여졌다면 /about 경로로 들어가보세요.
 
 라우트로 설정한 컴포넌트는, 3가지의 props 를 전달받게 됩니다:
 
-* `history` 이 객체를 통해 `push`, `replace` 를 통해 다른 경로로 이동하거나 앞 뒤 페이지로 전환 할 수 있습니다.
-* `location` 이 객체는 현재 경로에 대한 정보를 지니고 있고 URL 쿼리 (`/about?foo=bar` 형식) 정보도 가지고있습니다.
-* `match` 이 객체에는 어떤 라우트에 매칭이 되었는지에 대한 정보가 있고 params (`/about/:name` 형식) 정보를 가지고있습니다.
+- `history` 이 객체를 통해 `push`, `replace` 를 통해 다른 경로로 이동하거나 앞 뒤 페이지로 전환 할 수 있습니다.
+- `location` 이 객체는 현재 경로에 대한 정보를 지니고 있고 URL 쿼리 (`/about?foo=bar` 형식) 정보도 가지고있습니다.
+- `match` 이 객체에는 어떤 라우트에 매칭이 되었는지에 대한 정보가 있고 params (`/about/:name` 형식) 정보를 가지고있습니다.
 
-![About props](images/20190802-0800-05.PNG)
+![About props](../Images/20190802/20190802-0800-05.PNG)
 
 URL 쿼리의 경우엔 컴포넌트 내에서 동적으로 사용 할 수 있고, params 의 경우엔 사용하기 전에 꼭 라우트에서 지정을 해주어야합니다.
 
@@ -299,20 +293,20 @@ App 컴포넌트에서 다음과 같이 `/about/:name` 라우트를 추가하세
 `src/shared/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { Home, About } from 'pages';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { Home, About } from "pages";
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/about/:name" component={About}/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/about/:name" component={About} />
+      </div>
+    );
+  }
 }
 
 export default App;
@@ -325,14 +319,14 @@ URL 의 params 를 설정 할 때에는 `:foo` 의 형식으로 설정합니다.
 `src/pages/About.js`
 
 ```javascript
-import React from 'react';
+import React from "react";
 
-const About = ({match}) => {
-    return (
-        <div>
-            <h2>About {match.params.name}</h2>
-        </div>
-    );
+const About = ({ match }) => {
+  return (
+    <div>
+      <h2>About {match.params.name}</h2>
+    </div>
+  );
 };
 
 export default About;
@@ -342,7 +336,7 @@ export default About;
 
 한번 브라우저에서 /about/foo 경로로 들어가보세요.
 
-![match.params.name](images/20190802-0800-06.PNG)
+![match.params.name](../Images/20190802/20190802-0800-06.PNG)
 
 이런, About 컴포넌트가 중복됐군요.
 
@@ -353,22 +347,22 @@ export default About;
 `src/shared/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { Home, About } from 'pages';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import { Home, About } from "pages";
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Route exact path="/" component={Home}/>
-                <Switch>
-                    <Route path="/about/:name" component={About}/>
-                    <Route path="/about" component={About}/>
-                </Switch>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Route exact path="/" component={Home} />
+        <Switch>
+          <Route path="/about/:name" component={About} />
+          <Route path="/about" component={About} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
@@ -394,18 +388,18 @@ $ npm install query-string
 `src/pages/About.js`
 
 ```javascript
-import React from 'react';
-import queryString from 'query-string';
+import React from "react";
+import queryString from "query-string";
 
-const About = ({location, match}) => {
-    const query = queryString.parse(location.search);
-    console.log(query);
+const About = ({ location, match }) => {
+  const query = queryString.parse(location.search);
+  console.log(query);
 
-    return (
-        <div>
-            <h2>About {match.params.name}</h2>
-        </div>
-    );
+  return (
+    <div>
+      <h2>About {match.params.name}</h2>
+    </div>
+  );
 };
 
 export default About;
@@ -413,9 +407,9 @@ export default About;
 
 그리고 나서 /about/foo?detail=true 경로로 들어가서 개발자콘솔을 확인해보세요.
 
-![queryString](images/20190802-0800-07.PNG)
+![queryString](../Images/20190802/20190802-0800-07.PNG)
 
-![queryString console.log](images/20190802-0800-08.PNG)
+![queryString console.log](../Images/20190802/20190802-0800-08.PNG)
 
 detail 값이 객체에 생겼지요?
 
@@ -424,20 +418,20 @@ detail 값이 객체에 생겼지요?
 `src/pages/About.js`
 
 ```javascript
-import React from 'react';
-import queryString from 'query-string';
+import React from "react";
+import queryString from "query-string";
 
-const About = ({location, match}) => {
-    const query = queryString.parse(location.search);
+const About = ({ location, match }) => {
+  const query = queryString.parse(location.search);
 
-    const detail = query.detail === 'true';
+  const detail = query.detail === "true";
 
-    return (
-        <div>
-            <h2>About {match.params.name}</h2>
-            {detail && 'detail: blahblah'}
-        </div>
-    );
+  return (
+    <div>
+      <h2>About {match.params.name}</h2>
+      {detail && "detail: blahblah"}
+    </div>
+  );
 };
 
 export default About;
@@ -465,26 +459,32 @@ components 디렉토리에 Menu 라는 컴포넌트를 다음과 같이 만들�
 `src/comonents/Menu.js`
 
 ```javascript
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
-    return (
-        <div>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/about/foo">About Foo</Link></li>
-            </ul>
-            <hr/>
-        </div>
-    );
+  return (
+    <div>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/about/foo">About Foo</Link>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  );
 };
 
 export default Menu;
 ```
 
-![Link Component](images/20190802-0800-09.PNG)
+![Link Component](../Images/20190802/20190802-0800-09.PNG)
 
 페이지가 새로 로딩되지 않으면서 잘 전환이 되나요?
 
@@ -500,25 +500,37 @@ NavLink 컴포넌트는 Link 랑 비슷한데요, 만약에 설정한 URL 이 �
 `src/comonents/Menu.js`
 
 ```javascript
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Menu = () => {
-    const activeStyle = {
-        color: 'green',
-        fontSize: '2rem'
-    };
+  const activeStyle = {
+    color: "green",
+    fontSize: "2rem"
+  };
 
-    return (
-        <div>
-            <ul>
-                <li><NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink></li>
-                <li><NavLink exact to="/about" activeStyle={activeStyle}>About</NavLink></li>
-                <li><NavLink to="/about/foo" activeStyle={activeStyle}>About Foo</NavLink></li>
-            </ul>
-            <hr/>
-        </div>
-    );
+  return (
+    <div>
+      <ul>
+        <li>
+          <NavLink exact to="/" activeStyle={activeStyle}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to="/about" activeStyle={activeStyle}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about/foo" activeStyle={activeStyle}>
+            About Foo
+          </NavLink>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  );
 };
 
 export default Menu;
@@ -526,7 +538,7 @@ export default Menu;
 
 Route 를 지정 할 때 처럼, 중첩될수도 있는 라우트들은 `exact` 로 설정을 하셔야 합니다. 만약에 활성화 되었을 때 특정 클래스를 설정하고 싶다면 `activeClassName` 을 설정하시면 됩니다.
 
-![NavLink Component](images/20190802-0800-10.PNG)
+![NavLink Component](../Images/20190802/20190802-0800-10.PNG)
 
 <br/>
 <br/>
@@ -552,14 +564,10 @@ Foo 컴포넌트에서 props.children 의 자리에 Bar 컴포넌트가 들어�
 `src/pages/Post.js`
 
 ```javascript
-import React from 'react';
+import React from "react";
 
-const Post = ({match}) => {
-    return (
-        <div>
-            포스트 {match.params.id}
-        </div>
-    );
+const Post = ({ match }) => {
+  return <div>포스트 {match.params.id}</div>;
 };
 
 export default Post;
@@ -570,24 +578,36 @@ export default Post;
 `src/pages/Posts`
 
 ```javascript
-import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import { Post } from 'pages'; 
+import React from "react";
+import { Link, Route } from "react-router-dom";
+import { Post } from "pages";
 
-const Posts = ({match}) => {
-    return (
-        <div>
-           <h2>Post List</h2> 
-           <ul>
-                <li><Link to={`${match.url}/1`}>Post #1</Link></li>
-                <li><Link to={`${match.url}/2`}>Post #2</Link></li>
-                <li><Link to={`${match.url}/3`}>Post #3</Link></li>
-                <li><Link to={`${match.url}/4`}>Post #4</Link></li>
-           </ul>
-           <Route exact path={match.url} render={()=>(<h3>Please select any post</h3>)}/>
-           <Route path={`${match.url}/:id`} component={Post}/>
-        </div>
-    );
+const Posts = ({ match }) => {
+  return (
+    <div>
+      <h2>Post List</h2>
+      <ul>
+        <li>
+          <Link to={`${match.url}/1`}>Post #1</Link>
+        </li>
+        <li>
+          <Link to={`${match.url}/2`}>Post #2</Link>
+        </li>
+        <li>
+          <Link to={`${match.url}/3`}>Post #3</Link>
+        </li>
+        <li>
+          <Link to={`${match.url}/4`}>Post #4</Link>
+        </li>
+      </ul>
+      <Route
+        exact
+        path={match.url}
+        render={() => <h3>Please select any post</h3>}
+      />
+      <Route path={`${match.url}/:id`} component={Post} />
+    </div>
+  );
 };
 
 export default Posts;
@@ -608,10 +628,10 @@ Link 를 설정하는 부분에서는, match.url 이 사용되었는데요, 이 
 `src/pages/index.js`
 
 ```javascript
-export { default as Home } from './Home';
-export { default as About } from './About';
-export { default as Posts } from './Posts';
-export { default as Post } from './Post';
+export { default as Home } from "./Home";
+export { default as About } from "./About";
+export { default as Posts } from "./Posts";
+export { default as Post } from "./Post";
 ```
 
 그 다음엔 App 에서 /posts 경로를 위한 라우트를 설정하세요.
@@ -619,25 +639,25 @@ export { default as Post } from './Post';
 `src/shared/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { Home, About, Posts } from 'pages';
-import Menu from 'components/Menu';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import { Home, About, Posts } from "pages";
+import Menu from "components/Menu";
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Menu/>
-                <Route exact path="/" component={Home}/>
-                <Switch>
-                    <Route path="/about/:name" component={About}/>
-                    <Route path="/about" component={About}/>
-                </Switch>
-                <Route path="/posts" component={Posts}/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Menu />
+        <Route exact path="/" component={Home} />
+        <Switch>
+          <Route path="/about/:name" component={About} />
+          <Route path="/about" component={About} />
+        </Switch>
+        <Route path="/posts" component={Posts} />
+      </div>
+    );
+  }
 }
 
 export default App;
@@ -648,32 +668,48 @@ export default App;
 `src/components/Menu.js`
 
 ```javascript
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Menu = () => {
-    const activeStyle = {
-        color: 'green',
-        fontSize: '2rem'
-    };
+  const activeStyle = {
+    color: "green",
+    fontSize: "2rem"
+  };
 
-    return (
-        <div>
-            <ul>
-                <li><NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink></li>
-                <li><NavLink exact to="/about" activeStyle={activeStyle}>About</NavLink></li>
-                <li><NavLink to="/about/foo" activeStyle={activeStyle}>About Foo</NavLink></li>
-                <li><NavLink to="/posts" activeStyle={activeStyle}>Posts</NavLink></li>
-            </ul>
-            <hr/>
-        </div>
-    );
+  return (
+    <div>
+      <ul>
+        <li>
+          <NavLink exact to="/" activeStyle={activeStyle}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to="/about" activeStyle={activeStyle}>
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about/foo" activeStyle={activeStyle}>
+            About Foo
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/posts" activeStyle={activeStyle}>
+            Posts
+          </NavLink>
+        </li>
+      </ul>
+      <hr />
+    </div>
+  );
 };
 
 export default Menu;
 ```
 
-![Route and Route](images/20190802-0800-11.PNG)
+![Route and Route](../Images/20190802/20190802-0800-11.PNG)
 
 <br/>
 <br/>
@@ -682,22 +718,22 @@ export default Menu;
 
 라우트가 받는 props 중에서, 상당히 헷갈리는 값들이 있습니다.
 
-* location.pathname
-* match.path
-* match.url
+- location.pathname
+- match.path
+- match.url
 
 비슷한것들 같은데, 대체 어떻게 다를까요?
 
 한번 Post 와 Posts 에서 이 값들을 화면에 렌더링해보겠습니다.
 
-![Route props info](images/20190802-0800-12.PNG)
+![Route props info](../Images/20190802/20190802-0800-12.PNG)
 
 `location.pathname` 은 현재 브라우저상의 위치를 알려줍니다. 이 값은 어떤 라우트에서 렌더링하던 동일합니다.
 
 `match` 관련은 설정한 Route 와 직접적으로 관계된 값만 보여줍니다.
 
-* Posts 를 보여주는 라우트에선 :id 값을 설정하지 않았으니 path 와 url 이 둘다 /posts 입니다.
-* Post 를 보여주는 라우트에선 path 의 경우엔 라우트에서 설정한 path 값이 그대로 나타납니다. url 의 경우엔 :id 부분에 값이 들어간 상태로 나타납니다.
+- Posts 를 보여주는 라우트에선 :id 값을 설정하지 않았으니 path 와 url 이 둘다 /posts 입니다.
+- Post 를 보여주는 라우트에선 path 의 경우엔 라우트에서 설정한 path 값이 그대로 나타납니다. url 의 경우엔 :id 부분에 값이 들어간 상태로 나타납니다.
 
 어때요? 이렇게 보니까 더 이상 헷갈리지 않지요?
 
@@ -705,5 +741,6 @@ export default Menu;
 <br/>
 
 > 참조
-> * [리액트 라우터, 코드 스플리팅, 그리고 서버사이드 렌더링 :: 목차](https://velopert.com/3411)
-> * [react-router :: 1장. 리액트 라우터 사용해보기](https://velopert.com/3417)
+>
+> - [리액트 라우터, 코드 스플리팅, 그리고 서버사이드 렌더링 :: 목차](https://velopert.com/3411)
+> - [react-router :: 1장. 리액트 라우터 사용해보기](https://velopert.com/3417)
