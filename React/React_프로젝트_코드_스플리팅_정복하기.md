@@ -43,7 +43,7 @@ src 디렉토리에 notify.js 라는 파일을 만드세요.
 
 ```javascript
 function notify() {
-  alert('종소리 울려라 종소리 울려~');
+  alert("종소리 울려라 종소리 울려~");
 }
 
 export default notify;
@@ -54,8 +54,8 @@ export default notify;
 `src/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import notify from './notify';
+import React, { Component } from "react";
+import notify from "./notify";
 
 class App extends Component {
   handleClick = () => {
@@ -75,7 +75,7 @@ export default App;
 
 그러면 이렇게 버튼 누르면 alert 가 뜨겠죠?
 
-![alert](images/20190802-1622-01.PNG)
+![alert](../Images/20190802/20190802-1622-01.PNG)
 
 이 notify 함수는 사실상 저 버튼을 클릭 할 때 까지 필요가 없는 코드잖아요? 그러면 한번, 이 코드를 스플리팅 해보겠습니다.
 
@@ -87,12 +87,13 @@ export default App;
 notify 를 사용하기 위해서 기존에는 상단에서 `import notify from './notify';` 이런식으로 불러와줬었는데요 이걸 지우고 다음과 같이 handleClick 메소드에서 import 를 함수로 호출해서 불러와서 사용해보겠습니다.
 
 `App.js`
+
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class App extends Component {
   handleClick = () => {
-    import('./notify').then(({ default: notify }) => {
+    import("./notify").then(({ default: notify }) => {
       notify();
     });
   };
@@ -116,7 +117,7 @@ import 를 함수로 사용하면, Promise 를 반환합니다. import() 함수�
 
 그렇게 하시면, 다음과 같이 1.chunk.js 라는 파일을 불러오게 되고, 그 안에 notify 관련 코드가 들어있는 것을 확인 할 수 있을겁니다. 이렇게 분리된 파일을 청크 파일 이라고 부릅니다.
 
-![function code spliting](images/20190802-1622-02.PNG)
+![function code spliting](../Images/20190802/20190802-1622-02.PNG)
 
 import 를 함수로 사용해주면, 웹팩이 알아서 코드를 분리를 하여 따로 저장을하고, import 가 호출 될 때 불러와서 사용 할 수 있게 해줍니다.
 
@@ -132,7 +133,7 @@ SplitMe 컴포넌트를 작성해보세요!
 `src/SplitMe.js`
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 const SplitMe = () => {
   return <div>날, 필요할때만 불러.</div>;
@@ -146,14 +147,14 @@ export default SplitMe;
 `src/App.js`
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class App extends Component {
   state = {
     SplitMe: null
   };
   handleClick = () => {
-    import('./SplitMe').then(({ default: SplitMe }) => {
+    import("./SplitMe").then(({ default: SplitMe }) => {
       this.setState({
         SplitMe
       });
@@ -175,7 +176,7 @@ export default App;
 
 handleClick 이 호출되면, 비동기적으로 SplitMe 를 불러와서 state 에 담습니다. 그리고, render 함수에서는 state 안에 있는 SplitMe 가 유효 할 때만 렌더링을 해줍니다. 이로서, 컴포넌트 관련 코드를 다른 파일로 분리시키고, 필요할 때 불러와서 사용 할 수 있게 됩니다.
 
-![component code spliting](images/20190802-1622-03.PNG)
+![component code spliting](../Images/20190802/20190802-1622-03.PNG)
 
 <br/>
 <br/>
@@ -198,7 +199,7 @@ HoC 를 잘 모르신다면 [컴포넌트에 날개를 달아줘, HoC](https://v
 `src/withSplitting.js`
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 const withSplitting = getComponent => {
   // 여기서 getComponent 는 () => import('./SplitMe') 의 형태로 함수가 전달되야합니다.
@@ -245,10 +246,10 @@ App.js 는 다음과 같이 수정해주세요.
 `src/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import withSplitting from './withSplitting';
+import React, { Component } from "react";
+import withSplitting from "./withSplitting";
 
-const SplitMe = withSplitting(() => import('./SplitMe'));
+const SplitMe = withSplitting(() => import("./SplitMe"));
 
 class App extends Component {
   state = {
@@ -302,18 +303,18 @@ $ yarn add react-router-dom # 혹은 npm i react-router-dom
 `src/index.js`
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import registerServiceWorker from "./registerServiceWorker";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 registerServiceWorker();
 ```
@@ -328,7 +329,7 @@ registerServiceWorker();
 `src/pages/About.js`
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return <div>About</div>;
@@ -340,7 +341,7 @@ export default About;
 `src/pages/Home.js`
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 const Home = () => {
   return <div>Home</div>;
@@ -354,10 +355,10 @@ export default Home;
 `pages/index.js`
 
 ```javascript
-import withSplitting from '../withSplitting';
+import withSplitting from "../withSplitting";
 
-export const Home = withSplitting(() => import('./Home'));
-export const About = withSplitting(() => import('./About'));
+export const Home = withSplitting(() => import("./Home"));
+export const About = withSplitting(() => import("./About"));
 ```
 
 사실 이 작업은 App.js 에서 해도 무방한데, 그냥 조금 더 깔끔하게 사용하기 위해 여기서 미리 해준겁니다. 큰 차이는 없습니다.
@@ -367,9 +368,9 @@ export const About = withSplitting(() => import('./About'));
 `src/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import { About, Home } from './pages';
+import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
+import { About, Home } from "./pages";
 
 class App extends Component {
   render() {
@@ -394,7 +395,7 @@ class App extends Component {
 export default App;
 ```
 
-![component code spliting](images/20190802-1622-04.PNG)
+![component code spliting](../Images/20190802/20190802-1622-04.PNG)
 
 리액트 라우터와 함께 사용한다고 해서, 어려워지진 않죠? 달라지는 건 하나도 없습니다!
 
@@ -411,8 +412,8 @@ export default App;
 
 예시 코드:
 
-* [webpack.config.prod.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/config/webpack.config.prod.js#L389)
-* [pages](https://github.com/vlpt-playground/zzakzzak-e-tutorial/tree/master/src/pages)
+- [webpack.config.prod.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/config/webpack.config.prod.js#L389)
+- [pages](https://github.com/vlpt-playground/zzakzzak-e-tutorial/tree/master/src/pages)
 
 ### 문제 ii. 페이지 깜박임 현상
 
@@ -427,8 +428,8 @@ export default App;
 
 예시 코드:
 
-* [index.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/index.js#L13-L40)
-* [asyncComponent.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/lib/asyncComponent.js#L29-L33)
+- [index.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/index.js#L13-L40)
+- [asyncComponent.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/lib/asyncComponent.js#L29-L33)
 
 ### 문제 ii. 페이지 깜박임 현상
 
@@ -443,14 +444,14 @@ export default App;
 
 예시 코드:
 
-* [index.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/index.js#L13-L40)
-* [asyncComponent.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/lib/asyncComponent.js#L29-L33)
+- [index.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/index.js#L13-L40)
+- [asyncComponent.js](https://github.com/vlpt-playground/zzakzzak-e-tutorial/blob/master/src/lib/asyncComponent.js#L29-L33)
 
 ### 또 다른 해결방법은 react-loadable
 
 위 문제점들은 위에서 언급한 해결 방법으로 해결하는것도 좋지만.. 이 포스트에서는 react-loadable 을 통하여 해결하는 방법에 대해서 알아보도록 하겠습니다. 위 해결방법들의 장점은, 프로젝트를 개발하는 우리가 처음부터 끝까지 구현하는것이므로 원리를 완벽하게 파악 할 수 있다는 장점이 있지만 단점으로는 라우트 기반으로밖에 스플리팅하지 못하고, main.js 의 로딩이 끝나야 나머지 청크파일 로딩을 시작하므로 아주 조금은 비효율적입니다.
 
-![https://laftel.net/](images/20190802-1622-05.PNG)
+![https://laftel.net/](../Images/20190802/20190802-1622-05.PNG)
 
 위 페이지는 [라프텔](https://laftel.net/) 의 자바스크립트 로딩 파일 기록인데요, 제가 이 프로덕트를 개발 할 땐 위에서 언급했던 해결 방식처럼 필요한 자바스크립트 파일들을 미리 불러온다음에 ReactDOM.render 를 호출하는 방식으로 구현을 했었습니다. 이 로직이 작동하려면 main.js 파일을 먼저 불러온다음에 브라우저가 자바스크립트를 호출하는 시간까지 합해서, 약 780ms 가 걸렸습니다. 그때가 되서야 청크파일 로딩을 시작하는 것 입니다.
 
@@ -480,19 +481,19 @@ $ yarn add react-lodable # 혹은 npm i react-loadable
 `src/pages/index.js`
 
 ```javascript
-import React from 'react';
-import Loadable from 'react-loadable';
+import React from "react";
+import Loadable from "react-loadable";
 
 const Loading = () => {
   return <div>로딩중...</div>;
 };
 
 export const Home = Loadable({
-  loader: () => import('./Home'),
+  loader: () => import("./Home"),
   loading: Loading
 });
 export const About = Loadable({
-  loader: () => import('./About'),
+  loader: () => import("./About"),
   loading: Loading
 });
 ```
@@ -508,9 +509,9 @@ Loadable 의 특징으로는, 유용한기능이 굉장히 많습니다. 예를�
 `src/App.js`
 
 ```javascript
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import { About, Home } from './pages';
+import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
+import { About, Home } from "./pages";
 
 class App extends Component {
   handleMouseOver = () => {
@@ -547,7 +548,7 @@ export default App;
 `src/withSplitting.js`
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 const withSplitting = getComponent => {
   // 여기서 getComponent 는 () => import('./SplitMe') 의 형태로 함수가 전달되야합니다.
@@ -601,7 +602,7 @@ export default withSplitting;
 ```javascript
 Loadable.preloadAll().then(() => {
   app.listen(3000, () => {
-    console.log('Running on http://localhost:3000/');
+    console.log("Running on http://localhost:3000/");
   });
 });
 ```
@@ -614,9 +615,9 @@ preloadAll 이라는 함수를 통하여 스플리팅된 컴포넌트들을 미�
 
 ```javascript
 Loadable({
-  loader: () => import('./Bar'),
-  modules: ['./Bar'],
-  webpack: () => [require.resolveWeak('./Bar')],
+  loader: () => import("./Bar"),
+  modules: ["./Bar"],
+  webpack: () => [require.resolveWeak("./Bar")]
 });
 ```
 
@@ -627,14 +628,14 @@ Loadable({
 react-loadable 에서는 렌더링을 할 때 어떤 컴포넌트들이 사용되는지 트래킹을 합니다. 이 과정에서 Loadable.Capture 라는게 사용됩니다.
 
 ```javascript
-import Loadable from 'react-loadable';
+import Loadable from "react-loadable";
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   let modules = [];
 
   let html = ReactDOMServer.renderToString(
     <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-      <App/>
+      <App />
     </Loadable.Capture>
   );
 
@@ -649,16 +650,16 @@ app.get('/', (req, res) => {
 이를 통하여 스플리팅된 컴포넌트들의 URL 경로를 받아올 수 있게 됩니다. 그리고, html 을 설정 할 때 직접 주입을 해 줄 수 있습니다.
 
 ```javascript
-import Loadable from 'react-loadable';
-import { getBundles } from 'react-loadable/webpack'
-import stats from './dist/react-loadable.json';
+import Loadable from "react-loadable";
+import { getBundles } from "react-loadable/webpack";
+import stats from "./dist/react-loadable.json";
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   let modules = [];
 
   let html = ReactDOMServer.renderToString(
     <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-      <App/>
+      <App />
     </Loadable.Capture>
   );
 
@@ -671,12 +672,14 @@ app.get('/', (req, res) => {
       <body>
         <div id="app">${html}</div>
         <script src="/dist/manifest.js"></script>
-        ${bundles.map(bundle => {
-          return `<script src="/dist/${bundle.file}"></script>`
-          // alternatively if you are using publicPath option in webpack config
-          // you can use the publicPath value from bundle, e.g:
-          // return `<script src="${bundle.publicPath}"></script>`
-        }).join('\n')}
+        ${bundles
+          .map(bundle => {
+            return `<script src="/dist/${bundle.file}"></script>`;
+            // alternatively if you are using publicPath option in webpack config
+            // you can use the publicPath value from bundle, e.g:
+            // return `<script src="${bundle.publicPath}"></script>`
+          })
+          .join("\n")}
         <script src="/dist/main.js"></script>
       </body>
     </html>
@@ -690,13 +693,13 @@ app.get('/', (req, res) => {
 
 ```javascript
 // src/entry.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Loadable from 'react-loadable';
-import App from './components/App';
+import React from "react";
+import ReactDOM from "react-dom";
+import Loadable from "react-loadable";
+import App from "./components/App";
 
 Loadable.preloadReady().then(() => {
-  ReactDOM.hydrate(<App/>, document.getElementById('app'));
+  ReactDOM.hydrate(<App />, document.getElementById("app"));
 });
 ```
 
@@ -714,4 +717,5 @@ Loadable.preloadReady().then(() => {
 <br/>
 
 > 참조
-> * [리액트 프로젝트 코드 스플리팅 정복하기](https://velog.io/@velopert/react-code-splitting#4.-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%99%80-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+>
+> - [리액트 프로젝트 코드 스플리팅 정복하기](https://velog.io/@velopert/react-code-splitting#4.-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%9D%BC%EC%9A%B0%ED%84%B0%EC%99%80-%ED%95%A8%EA%BB%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
