@@ -26,9 +26,9 @@
 
 `Project > Build Automatically` 체크 해제
 
-![images](images/20191119/20191119-1531-03.png)
+![images](../Images/20191119/20191119-1531-03.png)
 
-![images](images/20191119/20191119-1531-04.png)
+![images](../Images/20191119/20191119-1531-04.png)
 
 `Project > Build ALL` 혹은 `Ctrl + B` 를 통해 수동으로 가능
 
@@ -38,9 +38,9 @@
 
 Window > Preferences > General 에서 `Show heap status` 체크
 
-![images](images/20191119/20191119-1531-01.png)
+![images](../Images/20191119/20191119-1531-01.png)
 
-![images](images/20191119/20191119-1531-02.png)
+![images](../Images/20191119/20191119-1531-02.png)
 
 이클립스 하단에 heap 사용 상태가 나타나고, 쓰레기통 아이콘을 클릭하면 `Garbage Collector`가 실행되고, `Garbage Collector`는 heap 메모리를 정리해 준다.
 
@@ -50,7 +50,7 @@ Window > Preferences > General 에서 `Show heap status` 체크
 
 Window > Preferences > General > Editors > Text Editors > Spelling 에서 `Enable spell checking` 해제
 
-![images](images/20191119/20191119-1531-05.png)
+![images](../Images/20191119/20191119-1531-05.png)
 
 <br/>
 
@@ -58,7 +58,7 @@ Window > Preferences > General > Editors > Text Editors > Spelling 에서 `Enabl
 
 Window > Preferences > General > Startup and Shutdown 에서 디폴트로 선택되는 플러그인 중 불필요한 것 체크 해제.
 
-![images](images/20191119/20191119-1531-06.png)
+![images](../Images/20191119/20191119-1531-06.png)
 
 <br/>
 
@@ -66,7 +66,7 @@ Window > Preferences > General > Startup and Shutdown 에서 디폴트로 선택
 
 Window > Preferences > Install/Updates > `Automatic Updates` 체크 해제
 
-![images](images/20191119/20191119-1531-07.png)
+![images](../Images/20191119/20191119-1531-07.png)
 
 <br/>
 
@@ -76,7 +76,7 @@ Window > Preferences > Java > Editor > Content Assist 에서 Auto Activation - `
 
 `ctrl + space`를 사용해서 수동으로 가능
 
-![images](images/20191119/20191119-1531-08.png)
+![images](../Images/20191119/20191119-1531-08.png)
 
 <br/>
 
@@ -84,7 +84,7 @@ Window > Preferences > Java > Editor > Content Assist 에서 Auto Activation - `
 
 Window > Preferences > Java > Editor > Folding 에서 `Enable folding` 체크 해제
 
-![images](images/20191119/20191119-1531-10.png)
+![images](../Images/20191119/20191119-1531-10.png)
 
 <br/>
 
@@ -92,11 +92,11 @@ Window > Preferences > Java > Editor > Folding 에서 `Enable folding` 체크 �
 
 Window > Preferences > Web > JSP Files > Validation > Validate JSP fragments 체크 해제
 
-![images](images/20191119/20191119-1531-09.png)
+![images](../Images/20191119/20191119-1531-09.png)
 
 Window > Preferences > Validation 에서 필요 없는 것 체크 해제
 
-![images](images/20191119/20191119-1531-11.png)
+![images](../Images/20191119/20191119-1531-11.png)
 
 <br/>
 
@@ -106,8 +106,8 @@ Window > Preferences > Install/Update
 
 설치 한 후 사용하지 않는 플러그인은 삭제한다.
 
-![images](images/20191119/20191119-1531-12.png)
+![images](../Images/20191119/20191119-1531-12.png)
 
-![images](images/20191119/20191119-1531-13.png)
+![images](../Images/20191119/20191119-1531-13.png)
 
 <br/>
