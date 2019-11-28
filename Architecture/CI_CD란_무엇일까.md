@@ -34,7 +34,7 @@ CI/CD의 **"CD"**는 **지속적인 서비스 제공(Continuous Delivery)** 및/
 
 <br/>
 
-![images](images/ci-cd-flow-desktop_1.png)
+![images](../Images/20191122/ci-cd-flow-desktop_1.png)
 
 [그림 1] CI/CD Flow
 
