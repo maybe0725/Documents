@@ -2,7 +2,7 @@
 
 <br/>
 
-출처 :: [[인프라] 아티팩트 저장소(artifact repository)](https://12bme.tistory.com/454?category=739421)
+출처 :: [[인프라] CI(지속적인 통합, Continuous Integration) 이해하기](https://12bme.tistory.com/151?category=739421)
 
 <br/>
 
