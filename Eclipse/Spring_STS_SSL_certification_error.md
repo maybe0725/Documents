@@ -18,16 +18,16 @@ Save As... InstallCert.java
 
 ## 2. Compiling
 
-C:\DevConfigProject\JDK> javac InstallCert.java
+C:\DevConfigProject\OpenJDK> javac InstallCert.java
 
 <br/>
 
 ## 3. Run
 
-C:\DevConfigProject\JDK> java -cp . InstallCert start.spring.io
+C:\DevConfigProject\OpenJDK> java -cp . InstallCert start.spring.io
 
 ```
-C:\DevConfigProject\JDK>java -cp . InstallCert start.spring.io
+C:\DevConfigProject\OpenJDK> java -cp . InstallCert start.spring.io
 Loading KeyStore C:\DevConfigProject\JDK\AdoptOpenJDK\jdk8u232-b09\jre\lib\security\cacerts...
 Opening connection to start.spring.io:443...
 Starting SSL handshake...
@@ -188,7 +188,7 @@ KeyIdentifier [
 
 Added certificate to keystore 'jssecacerts' using alias 'start.spring.io-1'
 
-C:\DevConfigProject\JDK>
+C:\DevConfigProject\OpenJDK>
 ```
 
 <br/>
@@ -198,7 +198,7 @@ C:\DevConfigProject\JDK>
 keytool 로 저장된 keystore에서 [output.cert]란 이름으로 인증서를 추출한다.
 
 ```
-C:\DevConfigProject\JDK>keytool -exportcert -keystore jssecacerts -storepass changeit -file output.cert -alias start.spring.io-1
+C:\DevConfigProject\OpenJDK>keytool -exportcert -keystore jssecacerts -storepass changeit -file output.cert -alias start.spring.io-1
 인증서가 <output.cert> 파일에 저장되었습니다.
 ```
 
@@ -209,7 +209,7 @@ C:\DevConfigProject\JDK>keytool -exportcert -keystore jssecacerts -storepass cha
 설치된 JDK 의 keystore에 인증서를 추가한다.
 
 ```
-C:\DevConfigProject\JDK>keytool -importcert -keystore C:\DevConfigProject\JDK\AdoptOpenJDK\jdk8u232-b09\jre\lib\security\cacerts -storepass changeit -file output.cert -alias letsencrypt
+C:\DevConfigProject\OpenJDK> keytool -importcert -keystore C:\DevConfigProject\OpenJDK\zulu11\lib\security\cacerts -storepass changeit -file output.cert -alias letsencrypt
 소유자: CN=*.spring.io, OU=Spring, O="Pivotal Software, Inc.", L=Palo Alto, ST=California, C=US
 발행자: CN=Somansa Root CA, O=Somansa, C=KR
 일련 번호: 3ea15fbb7c5b8064
@@ -286,5 +286,5 @@ KeyIdentifier [
 이 인증서를 신뢰합니까? [아니오]:  예
 인증서가 키 저장소에 추가되었습니다.
 
-C:\DevConfigProject\JDK>
+C:\DevConfigProject\OpenJDK>
 ```
