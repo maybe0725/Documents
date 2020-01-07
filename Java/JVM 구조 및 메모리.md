@@ -120,3 +120,14 @@ Runtime Data Area의 위 5가지 영역 중 1, 2 번은 모든 Thread가 공유�
 ▲ [그림 2] Thread 별 메모리 구조
 
 <br/>
+
+- 참고
+
+  JVM 구조 및 메모
+
+      https://jeong-pro.tistory.com/148
+      https://www.holaxprogramming.com/2013/07/16/java-jvm-runtime-data-area/
+
+  JVM Stack
+
+      https://www.quora.com/What-is-a-JVM-stack
