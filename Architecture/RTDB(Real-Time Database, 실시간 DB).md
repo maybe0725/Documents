@@ -14,7 +14,8 @@
 
 > RTDB (Real-Time Database)는 현장의 `운전 데이터 (Process Variable, Set Point, Output, Mode, 등)`를 실시간으로 수집하여 저장하여 시스템입니다.<br/><br/>
 > 주로 RTDB의 데이터는 `Time Stamp, Tag, Description, Value, Confidence를 가진 단순 데이터`로써, ORACLE / MS-SQL 같은 RDB (Relational DataBase) 보다는
-> 사용자가 찾을 때 빠르게 데이터를 지원할 수 있도록 `시간 순으로 ASCII 형태로 차곡 차곡 쌓아놓는 방식으로 저장` 합니다.<br/><br/> > `물론, Tag 관련 정보 (Tag Name, Description, Data Type, Range, Set Value, 등)는 RDB에 저장하는 것이 효과적입니다.`
+> 사용자가 찾을 때 빠르게 데이터를 지원할 수 있도록 `시간 순으로 ASCII 형태로 차곡 차곡 쌓아놓는 방식으로 저장` 합니다.<br/><br/>
+> `물론, Tag 관련 정보 (Tag Name, Description, Data Type, Range, Set Value, 등)는 RDB에 저장하는 것이 효과적입니다.`
 > 따라서 잘 설계된 RTDB는 RDB와 상호 연결이 쉽도록 구성되어 있습니다.<br/><br/>
 > 또한, RTDB는 전문가가 아닌 현업을 잘 알고 있는 공정 엔지니어들이 운전 / 이력 / 생산 / 경보 / 설비 관리를 위하여 쉽게 할 수 있도록
 > 다양한 Application 기능들이 포함되어 있어야 합니다.<br/><br/>
