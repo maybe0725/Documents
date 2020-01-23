@@ -4,7 +4,7 @@
 
 - atoms, molecules, organisms, pages ,templates 의 형식으로 하여 컴포넌트를 분리하여 적용할수 있습니다.
 
-![Atoms Design이란](../Images/20190730/20190730-1407-01.png)
+![Atoms Design이란](../Images/2019/07/20190730-1407-01.png)
 
 ### 2. Atoms Design 구성 요소들
 
@@ -12,32 +12,32 @@ Atoms(원자)
 
 - Atom은 주로 native hmtl 태그가 대상이 된다. 그리고 컬럼 팔레트와 애니메이션 같은 추상적인 요소도 포함된다.
 
-![Atoms(원자)](../Images/20190730/20190730-1407-02.png)
+![Atoms(원자)](../Images/2019/07/20190730-1407-02.png)
 
 Molecules(분자)
 
 - Molecules는 atoms의 그룹, 원자에서 분자를 만들때는 단순한 한가지 사용에 근거한 조합을 권장한다. <br/>( 예시 ) 검색 Input box 와 검색 버튼의 조합 )
 
-![Molecules(분자)](../Images/20190730/20190730-1407-03.png)
+![Molecules(분자)](../Images/2019/07/20190730-1407-03.png)
 
 Organisms(유기체)
 
 - organism 은 Atom들의 그룹 또는 Molecule 그리고 다른 organism 까지도 포함하는 개념<br/>
   (예) Header 같이 인터페이스로 구분되는 것들의 조합)
 
-![Organisms(유기체)](../Images/20190730/20190730-1407-04.png)
+![Organisms(유기체)](../Images/2019/07/20190730-1407-04.png)
 
 Templates
 
 - Templates은 Pages 들에서 사용되는 Layout 들
 
-![Templates](../Images/20190730/20190730-1407-05.png)
+![Templates](../Images/2019/07/20190730-1407-05.png)
 
 Pages
 
 - 페이지는 템플릿의 특정 인스턴스가 된다.
 
-![Pages](../Images/20190730/20190730-1407-06.png)
+![Pages](../Images/2019/07/20190730-1407-06.png)
 
 ### 3. Atomic Design 구현 예시
 
