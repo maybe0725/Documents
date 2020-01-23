@@ -155,7 +155,7 @@ registerServiceWorker();
 $ npm start
 ```
 
-![Hello React-Router](../Images/20190802/20190802-0800-01.PNG)
+![Hello React-Router](../Images/2019/08/20190802-0800-01.PNG)
 
 자 이제 기본적인 설정이 완료되었으니 본격적으로 리액트 라우터를 사용해봅시다!
 
@@ -248,11 +248,11 @@ export default App;
 
 먼저 우리의 라우트가 제대로 보여지는지 확인하세요.
 
-![Home](../Images/20190802/20190802-0800-02.PNG)
+![Home](../Images/2019/08/20190802-0800-02.PNG)
 
 Home 이 잘 보여졌다면 /about 경로로 들어가보세요.
 
-![About](../Images/20190802/20190802-0800-03.PNG)
+![About](../Images/2019/08/20190802-0800-03.PNG)
 
 잘 보여졌죠? 지금의 경우에는 개발서버쪽에서 `historyApiFallback` 설정을 통하여 어떤 요청으로 들어오던 저희 어플리케이션이 불러와져있는 index.html 을 보여주도록 설정하기 때문입니다.
 
@@ -260,7 +260,7 @@ Home 이 잘 보여졌다면 /about 경로로 들어가보세요.
 
 테스팅을 완료했다면 한번 Home 라우트의 `exact` 를 지워보세요.
 
-![exact](../Images/20190802/20190802-0800-04.PNG)
+![exact](../Images/2019/08/20190802-0800-04.PNG)
 
 두 컴포넌트가 같이 보여졌죠? exact 를 하지 않으면, `/about` 에도 `/` 가 있기 때문에, 매칭이 되어서 보여지는거랍니다. 확인을 하셨다면 다시 exact 를 적으세요.
 
@@ -277,7 +277,7 @@ Home 이 잘 보여졌다면 /about 경로로 들어가보세요.
 - `location` 이 객체는 현재 경로에 대한 정보를 지니고 있고 URL 쿼리 (`/about?foo=bar` 형식) 정보도 가지고있습니다.
 - `match` 이 객체에는 어떤 라우트에 매칭이 되었는지에 대한 정보가 있고 params (`/about/:name` 형식) 정보를 가지고있습니다.
 
-![About props](../Images/20190802/20190802-0800-05.PNG)
+![About props](../Images/2019/08/20190802-0800-05.PNG)
 
 URL 쿼리의 경우엔 컴포넌트 내에서 동적으로 사용 할 수 있고, params 의 경우엔 사용하기 전에 꼭 라우트에서 지정을 해주어야합니다.
 
@@ -336,7 +336,7 @@ export default About;
 
 한번 브라우저에서 /about/foo 경로로 들어가보세요.
 
-![match.params.name](../Images/20190802/20190802-0800-06.PNG)
+![match.params.name](../Images/2019/08/20190802-0800-06.PNG)
 
 이런, About 컴포넌트가 중복됐군요.
 
@@ -407,9 +407,9 @@ export default About;
 
 그리고 나서 /about/foo?detail=true 경로로 들어가서 개발자콘솔을 확인해보세요.
 
-![queryString](../Images/20190802/20190802-0800-07.PNG)
+![queryString](../Images/2019/08/20190802-0800-07.PNG)
 
-![queryString console.log](../Images/20190802/20190802-0800-08.PNG)
+![queryString console.log](../Images/2019/08/20190802-0800-08.PNG)
 
 detail 값이 객체에 생겼지요?
 
@@ -484,7 +484,7 @@ const Menu = () => {
 export default Menu;
 ```
 
-![Link Component](../Images/20190802/20190802-0800-09.PNG)
+![Link Component](../Images/2019/08/20190802-0800-09.PNG)
 
 페이지가 새로 로딩되지 않으면서 잘 전환이 되나요?
 
@@ -538,7 +538,7 @@ export default Menu;
 
 Route 를 지정 할 때 처럼, 중첩될수도 있는 라우트들은 `exact` 로 설정을 하셔야 합니다. 만약에 활성화 되었을 때 특정 클래스를 설정하고 싶다면 `activeClassName` 을 설정하시면 됩니다.
 
-![NavLink Component](../Images/20190802/20190802-0800-10.PNG)
+![NavLink Component](../Images/2019/08/20190802-0800-10.PNG)
 
 <br/>
 <br/>
@@ -709,7 +709,7 @@ const Menu = () => {
 export default Menu;
 ```
 
-![Route and Route](../Images/20190802/20190802-0800-11.PNG)
+![Route and Route](../Images/2019/08/20190802-0800-11.PNG)
 
 <br/>
 <br/>
@@ -726,7 +726,7 @@ export default Menu;
 
 한번 Post 와 Posts 에서 이 값들을 화면에 렌더링해보겠습니다.
 
-![Route props info](../Images/20190802/20190802-0800-12.PNG)
+![Route props info](../Images/2019/08/20190802-0800-12.PNG)
 
 `location.pathname` 은 현재 브라우저상의 위치를 알려줍니다. 이 값은 어떤 라우트에서 렌더링하던 동일합니다.
 
