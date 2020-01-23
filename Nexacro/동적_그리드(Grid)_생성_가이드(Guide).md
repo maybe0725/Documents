@@ -1,9 +1,9 @@
 # nexacro 동적 그리드(Grid) 생성 가이드(Guide)
 
-![nexacro UI](../Images/20190801/dynamic-grid-01.PNG)
-![nexacro Dataset Binding](../Images/20190801/dynamic-grid-02.PNG)
-![nexacro Dataset Binding](../Images/20190801/dynamic-grid-03.PNG)
-![Server Process Source](../Images/20190801/dynamic-grid-04.PNG)
+![nexacro UI](../Images/2019/08/dynamic-grid-01.PNG)
+![nexacro Dataset Binding](../Images/2019/08/dynamic-grid-02.PNG)
+![nexacro Dataset Binding](../Images/2019/08/dynamic-grid-03.PNG)
+![Server Process Source](../Images/2019/08/dynamic-grid-04.PNG)
 
 ### 1. 요구사항
 
