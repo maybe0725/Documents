@@ -22,7 +22,7 @@
 
 ### 구조
 
-![images](../Images/20191122/20191122-1728-01.png)
+![images](../Images/2019/11/20191122-1728-01.png)
 
 <br/>
 
@@ -46,7 +46,7 @@
 - 플러그인은 다른 산출물(artifacts)와 같이 저장소에서 관리된다.
 - 메이븐은 여러 플러그인으로 구성되어 있으며, 각각의 플러그인은 하나 이상의 goal(명령, 작업)을 포함하고있다. Goal은 Maven의 실행단위이다.
 
-![images](../Images/20191122/20191122-1728-02.png)
+![images](../Images/2019/11/20191122-1728-02.png)
 
 - 플러그인과 골의 조합으로 실행한다. ex. `mvn <plugin>:<goal> = mvn archetype:generate`
 - 메이븐은 여러 goal을 묶어서 lifecycle phases 로 만들고 실행한다. ex. `mvn <phase> = mvn install`
@@ -71,7 +71,7 @@ Lifecycle은 Build Phase 들로 구성되며 일련의 순서를 갖는다. phas
 
 아래 사진은 Build default 라이프사이클의 주요 phase이고 그 밑에는 전체이다.
 
-![images](../Images/20191122/20191122-1728-03.png)
+![images](../Images/2019/11/20191122-1728-03.png)
 
 **clean : 빌드 시 생성되었던 산출물을 삭제**
 
