@@ -18,7 +18,7 @@
 
 <br/>
 
-![images](../Images/20191217/20191217-1045-01.png)
+![images](../Images/2019/12/20191217-1045-01.png)
 
 ▲ Structured Data(CSV형태)
 
@@ -36,7 +36,7 @@
 
 <br/>
 
-![images](../Images/20191217/20191217-1045-02.png)
+![images](../Images/2019/12/20191217-1045-02.png)
 
 ▲ Semi-Structured Data (JSON 형태)
 
