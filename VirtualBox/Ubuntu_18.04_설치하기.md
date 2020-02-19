@@ -558,12 +558,12 @@ network:
         enp0s3:
             dhcp4: no
             addresses: [10.0.2.100/24]
-            gateway4: 10.0.2.1
+            gateway4: 10.0.2.0
         enp0s8:
             dhcp4: no
             addresses: [192.168.56.100/24]
             gateway4: 192.168.56.0
-            nameservers
+            nameservers:
                 addresses: [8.8.8.8,8.8.4.4]
     version: 2
 
@@ -575,6 +575,7 @@ root@ubuntu:/etc/netplan# netplan apply
 
 ### 7. 변경사항 확인
 root@ubuntu:/etc/netplan# ip addr
+
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -597,8 +598,7 @@ root@ubuntu:/etc/netplan# ip addr
        valid_lft 1149sec preferred_lft 1149sec
     inet6 fe80::a00:27ff:fed3:9e7a/64 scope link
        valid_lft forever preferred_lft forever
-root@ubuntu:/etc/netplan#
-root@ubuntu:/etc/netplan#
+
 root@ubuntu:/etc/netplan# ip route
 default via 10.0.2.1 dev enp0s3 proto static
 default via 10.0.2.1 dev enp0s3 proto dhcp src 10.0.2.8 metric 100
