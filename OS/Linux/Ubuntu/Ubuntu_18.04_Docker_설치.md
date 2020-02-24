@@ -178,7 +178,7 @@ docker:x:999:
 ```sh
 $ sudo usermod -aG docker 사용할아이디
 
-ex) $ sudo usermod -aG docker iamdeveloper
+ex) $ sudo usermod -aG docker maybe
 ```
 
 ### 도커 권한 확인
